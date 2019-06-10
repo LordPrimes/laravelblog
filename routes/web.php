@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('login', 'AdminController@index')->name('login');
+Route::post('/guest','AdminController@cheked')->name('guest');
+Route::get('/admins', 'AdminController@adminpages')
+->middleware('auth')->name('admin');
